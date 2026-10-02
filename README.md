@@ -93,6 +93,12 @@ R1 performs inter-VLAN routing using router-on-a-stick subinterfaces.
 
 Additional VLAN evidence is available in the `screenshots/` and `wireshark/` directories.
 
+### VLAN 10
+![VLAN 10 Verification](screenshots/vlan10.png)
+
+### VLAN 20
+![VLAN 20 Verification](screenshots/vlan20.png)
+
 ---
 
 ## DHCP
@@ -104,6 +110,7 @@ Clients automatically obtained their IP configuration from the router.
 The DHCP DORA process was captured and analyzed using Wireshark.
 
 ![DHCP Capture](screenshots/dhcp.png)
+![DHCP Binding Verification](screenshots/dhcp-bind.png)
 
 DHCP configuration and binding information are available in the `configs/` and `screenshots/` directories.
 
@@ -135,6 +142,12 @@ R1 uses R3 as the next hop for external traffic:
 
 The external network is: `198.51.100.0/24`
 
+## Connectivity Verification
+
+End-to-end connectivity was verified using ICMP between internal and external network segments.
+
+![ICMP Connectivity Verification](screenshots/icmp.png)
+
 ---
 
 ## NAT/PAT
@@ -153,6 +166,7 @@ NAT translations were verified using Cisco IOS commands and packet captures.
 The NAT Wireshark capture is available at:  
 `wireshark/nat.pcapng`
 ![NAT Verification](screenshots/nat.png)
+![NAT Verification](screenshots/nat-wireshark.png)
 
 ---
 
@@ -161,6 +175,8 @@ The NAT Wireshark capture is available at:
 An extended ACL was implemented on VLAN 20 to demonstrate traffic filtering between VLANs.
 
 The objective was to prevent VLAN 20 clients from initiating ICMP echo requests toward VLAN 10 while allowing return traffic and other IP traffic.
+
+![ACL Verification](screenshots/acl.png)
 
 ### Test Results
 
@@ -186,6 +202,7 @@ The capture demonstrates:
 
 The ARP Wireshark capture is available at:  
 `wireshark/arp.pcapng`
+![ARP Packet Analysis](screenshots/arp.png)
 
 ---
 
