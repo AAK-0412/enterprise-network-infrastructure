@@ -1,0 +1,27 @@
+R1#sh access-lists VLAN20-FILTER
+Extended IP access list VLAN20-FILTER
+    10 permit icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo-reply
+    20 deny icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo
+    30 permit ip any any
+R1#sh access-lists VLAN20-FILTER
+Extended IP access list VLAN20-FILTER
+    10 permit icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo-reply (5 matches)
+    20 deny icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo (5 matches)
+    30 permit ip any any (5 matches)
+R1#sh running-conf | section VLAN20-FILTER
+ ip access-group VLAN20-FILTER in
+ip access-list extended VLAN20-FILTER
+ permit icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo-reply
+ deny   icmp 192.168.20.0 0.0.0.255 192.168.10.0 0.0.0.255 echo
+ permit ip any any
+R1#sh running-conf int Fastethernet0/0.20
+Building configuration...
+
+Current configuration : 148 bytes
+!
+interface FastEthernet0/0.20
+ encapsulation dot1Q 20
+ ip address 192.168.20.1 255.255.255.0
+ ip access-group VLAN20-FILTER in
+ ip nat inside
+end
