@@ -122,6 +122,7 @@ The routers successfully established an OSPF adjacency and exchanged routes. The
 
 The OSPF packet capture is available at:  
 `wireshark/ospf.pcapng`
+![OSPF Analysis](screenshots/ospf.png)
 
 ---
 
@@ -151,6 +152,7 @@ NAT translations were verified using Cisco IOS commands and packet captures.
 
 The NAT Wireshark capture is available at:  
 `wireshark/nat.pcapng`
+![NAT Verification](screenshots/nat.png)
 
 ---
 
